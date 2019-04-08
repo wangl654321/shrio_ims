@@ -84,6 +84,7 @@ public class IndexController {
 
     @RequestMapping("/login")
     public ModelAndView login(HttpServletRequest req) {
+
         String error = null;
         String exceptionClassName = (String) req.getAttribute("shiroLoginFailure");
         if (UnknownAccountException.class.getName().equals(exceptionClassName)) {
