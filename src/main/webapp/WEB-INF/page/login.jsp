@@ -44,13 +44,13 @@
                                         登录
                                             <c:choose>
                                                 <c:when test="${error eq '帐户未激活!'}">
-                                        <span class="label label-lg label-warning arrowed login-error-tip">${error}
-                                                    <a href="#" data-target="#resend-email-box" class="resend-email-link">
-                                            点我重发激活邮件
-                                        </a></span>
-                                                </c:when>
-                                                <c:otherwise>
-                                        <span class="label label-lg label-warning arrowed login-error-tip">${error}</span>
+                                                    <span class="label label-lg label-warning arrowed login-error-tip">${error}
+                                                                <a href="#" data-target="#resend-email-box" class="resend-email-link">
+                                                        点我重发激活邮件
+                                                    </a></span>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                    <span class="label label-lg label-warning arrowed login-error-tip">${error}</span>
                                                 </c:otherwise>
                                             </c:choose>
                                     </h4>
