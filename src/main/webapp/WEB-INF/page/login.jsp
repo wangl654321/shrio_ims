@@ -28,9 +28,9 @@
                         <h1>
                             <i class="ace-icon fa fa-leaf green"></i>
                             <%--<span class="red">企业</span>--%>
-                            <span class="grey" id="id-text2">信息管理系统</span>
+                            <span class="grey" id="id-text2">管理系统</span>
                         </h1>
-                        <h4 class="blue" id="id-company-text">&copy;2018 东云网</h4>
+
                     </div>
 
                     <div class="space-6"></div>
@@ -93,25 +93,25 @@
                                         </fieldset>
                                     </form>
 
-                                    <div class="social-or-login center">
-                                        <span class="bigger-110">其他登录方式</span>
-                                    </div>
+                                    <%-- <div class="social-or-login center">
+                                         <span class="bigger-110">其他登录方式</span>
+                                     </div>
 
-                                    <div class="space-6"></div>
+                                     <div class="space-6"></div>
 
-                                    <div class="social-login center">
-                                        <a class="btn btn-primary">
-                                            <i class="ace-icon fa fa-qq"></i>
-                                        </a>
+                                     <div class="social-login center">
+                                         <a class="btn btn-primary">
+                                             <i class="ace-icon fa fa-qq"></i>
+                                         </a>
 
-                                        <a class="btn btn-success">
-                                            <i class="ace-icon fa fa-weixin"></i>
-                                        </a>
+                                         <a class="btn btn-success">
+                                             <i class="ace-icon fa fa-weixin"></i>
+                                         </a>
 
-                                        <a class="btn btn-danger">
-                                            <i class="ace-icon fa fa-weibo"></i>
-                                        </a>
-                                    </div>
+                                         <a class="btn btn-danger">
+                                             <i class="ace-icon fa fa-weibo"></i>
+                                         </a>
+                                     </div>--%>
                                 </div><!-- /.widget-main -->
 
                                 <div class="toolbar clearfix">
