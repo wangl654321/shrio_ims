@@ -59,32 +59,26 @@
                                     <form method="post" action="">
                                         <fieldset>
                                             <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" name="username"
-                                                                   placeholder="用户名/邮箱/手机号" value="admin" required
-                                                                   autofocus/>
-															<i class="ace-icon fa fa-user"></i>
-														</span>
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="text" class="form-control" name="username" placeholder="用户名/邮箱/手机号" value="admin" required autofocus/>
+                                                    <i class="ace-icon fa fa-user"></i>
+                                                </span>
                                             </label>
 
                                             <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" name="password"
-                                                                   value="admin" placeholder="密码" required/>
-															<i class="ace-icon fa fa-lock"></i>
-														</span>
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="password" class="form-control" name="password" value="admin" placeholder="密码" required/>
+                                                    <i class="ace-icon fa fa-lock"></i>
+                                                </span>
                                             </label>
-
                                             <div class="space"></div>
-
                                             <div class="clearfix">
                                                 <label class="inline">
                                                     <input type="checkbox" class="ace" name="rememberMe"/>
                                                     <span class="lbl">记住我</span>
                                                 </label>
 
-                                                <button type="submit"
-                                                        class="width-35 pull-right btn btn-sm btn-primary">
+                                                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
                                                     <i class="ace-icon fa fa-key"></i>
                                                     <span class="bigger-110">登录</span>
                                                 </button>
@@ -128,8 +122,8 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div><!-- /.widget-body -->
-                        </div><!-- /.login-box -->
+                            </div>
+                        </div>
 
                         <div id="forgot-box" class="forgot-box widget-box no-border">
                             <div class="widget-body">
@@ -147,11 +141,10 @@
                                     <form class="retrieve-password-form" id="retrieve-password-form">
                                         <fieldset>
                                             <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control"
-                                                                   placeholder="电子邮箱" required autofocus/>
-															<i class="ace-icon fa fa-envelope"></i>
-														</span>
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="email" class="form-control" placeholder="电子邮箱" required autofocus/>
+                                                    <i class="ace-icon fa fa-envelope"></i>
+                                                </span>
                                             </label>
 
                                             <div class="clearfix">
@@ -170,8 +163,8 @@
                                         <i class="ace-icon fa fa-arrow-right"></i>
                                     </a>
                                 </div>
-                            </div><!-- /.widget-body -->
-                        </div><!-- /.forgot-box -->
+                            </div>
+                        </div>
 
                         <div id="signup-box" class="signup-box widget-box no-border">
                             <div class="widget-body">
@@ -188,38 +181,34 @@
                                     <form class="sign-up-form" id="sign-up-form">
                                         <fieldset>
                                             <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control"
-                                                                   id="email" name="email" placeholder="电子邮箱(必需,用于激活及找回密码)"/>
-															<i class="ace-icon fa fa-envelope"></i>
-														</span>
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="电子邮箱(必需,用于激活及找回密码)"/>
+                                                    <i class="ace-icon fa fa-envelope"></i>
+                                                </span>
                                             </label>
                                             <label for="email"></label>
 
                                             <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control"
-                                                                  id="username" name="username" placeholder="用户名(必需)"/>
-															<i class="ace-icon fa fa-user"></i>
-														</span>
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="text" class="form-control" id="username" name="username" placeholder="用户名(必需)"/>
+                                                    <i class="ace-icon fa fa-user"></i>
+                                                </span>
                                             </label>
                                             <label for="username"></label>
 
                                             <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control"
-                                                                   id="password" name="password" placeholder="密码(必需)"/>
-															<i class="ace-icon fa fa-lock"></i>
-														</span>
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="password" class="form-control" id="password" name="password" placeholder="密码(必需)"/>
+                                                    <i class="ace-icon fa fa-lock"></i>
+                                                </span>
                                             </label>
                                             <label for="password"></label>
 
                                             <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control"
-                                                                  id="confirm_password" name="confirm_password" placeholder="确认密码(必需)"/>
-															<i class="ace-icon fa fa-retweet"></i>
-														</span>
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="确认密码(必需)"/>
+                                                    <i class="ace-icon fa fa-retweet"></i>
+                                                </span>
                                             </label>
                                             <label for="confirm_password"></label>
 
@@ -229,15 +218,12 @@
                                             </label>
 
                                             <label for="agree_ra"></label>
-
                                             <div class="space-24"></div>
-
                                             <div class="clearfix">
                                                 <button type="reset" class="width-30 pull-left btn btn-sm">
                                                     <i class="ace-icon fa fa-refresh"></i>
                                                     <span class="bigger-110">重置</span>
                                                 </button>
-
                                                 <button type="submit"
                                                         class="width-65 pull-right btn btn-sm btn-success sign-up-submit">
                                                     <span class="bigger-110">提交</span>
@@ -255,8 +241,8 @@
                                         返回登录
                                     </a>
                                 </div>
-                            </div><!-- /.widget-body -->
-                        </div><!-- /.signup-box -->
+                            </div>
+                        </div>
 
                         <%--重发激活邮件--%>
                         <div id="resend-email-box" class="forgot-box widget-box no-border">
@@ -275,11 +261,10 @@
                                     <form class="resend-email-form" id="resend-email-form">
                                         <fieldset>
                                             <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" name="username"
-                                                                   placeholder="待激活用户名" required autofocus/>
-															<i class="ace-icon fa fa-user"></i>
-														</span>
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="text" class="form-control" name="username" placeholder="待激活用户名" required autofocus/>
+                                                    <i class="ace-icon fa fa-user"></i>
+                                                </span>
                                             </label>
 
                                             <div class="clearfix">
@@ -297,8 +282,8 @@
                                         <i class="ace-icon fa fa-arrow-right"></i>
                                     </a>
                                 </div>
-                            </div><!-- /.widget-body -->
-                        </div><!-- /.forgot-box -->
+                            </div>
+                        </div>
 
                         <!-- 提示框 -->
                         <div class="modal fade" id="op-tips-dialog" tabindex="-1" role="dialog"
@@ -316,13 +301,13 @@
                             </div>
                         </div>
 
-                    </div><!-- /.position-relative -->
+                    </div>
 
                 </div>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.main-content -->
-</div><!-- /.main-container -->
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- 基本脚本 -->
 <%@include file="common/basic-scripts.jsp" %>
@@ -337,7 +322,6 @@
 <script src="${path}/assets/js/jquery.easypiechart.min.js"></script>
 <script src="${path}/assets/js/jquery.gritter.min.js"></script>
 <script src="${path}/assets/js/spin.js"></script>
-
 <script src="${path}/resource/static/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="${path}/resource/static/jquery-validation/dist/localization/messages_zh.js"></script>
 
