@@ -155,7 +155,7 @@
                                             </div>
                                         </fieldset>
                                     </form>
-                                </div><!-- /.widget-main -->
+                                </div>
 
                                 <div class="toolbar center">
                                     <a href="#" data-target="#login-box" class="back-to-login-link">
