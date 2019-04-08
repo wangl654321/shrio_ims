@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ims.dao.LoginLogDao">
+
+    <!-- 添加用户登录日志 -->
+    <insert id="addLoginLog" useGeneratedKeys="true" keyProperty="id" parameterType="com.ims.model.LoginLog">
+    INSERT INTO login_log(username,time,ip,device,os,browser)
+    VALUES(#{username},#{time},#{ip},#{device},#{os},#{browser})
+  </insert>
+    <!-- 删除用户登录日志 -->
+    <delete id="deleteLoginLog" parameterType="long">
+    DELETE FROM login_log WHERE id = #{id}
+  </delete>
+    <!-- 用户登录日志实体结果映射 -->
+    <resultMap type="com.ims.model.LoginLog" id="loginLogResult">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="time" column="time"/>
+        <result property="ip" column="ip"/>
+        <result property="device" column="device"/>
+        <result property="os" column="os"/>
+        <result property="browser" column="browser"/>
+    </resultMap>
+    <!--根据名字查询用户登录日志-->
+    <select id="findLoginLogByUsername" parameterType="string" resultMap="loginLogResult">
+    SELECT * FROM login_log
+    WHERE username = #{username}
+  </select>
+    <!-- 查询所有用户登录日志 -->
+    <select id="findAllLoginLog" resultMap="loginLogResult">
+    SELECT * FROM login_log
+  </select>
+</mapper>

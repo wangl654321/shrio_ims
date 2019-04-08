@@ -1,0 +1,2 @@
+css/ace.min.css：已更改，解决图片404错误，当没有图片时显示背景色
+.light-login{background:url(../images/background/bg-img.jpg) #DFE0E2}

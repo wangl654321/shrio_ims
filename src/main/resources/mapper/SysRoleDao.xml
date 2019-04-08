@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ims.dao.SysRoleDao">
+  <!-- 角色实体结果映射 -->
+  <resultMap type="com.ims.model.Role" id="roleResult">
+    <id property="id" column="id"/>
+    <result property="name" column="name"/>
+    <result property="description" column="description"/>
+    <result property="code" column="code"/>
+  </resultMap>
+
+  <!-- 添加角色 -->
+  <insert id="addRole" useGeneratedKeys="true" keyProperty="id" parameterType="com.ims.model.Role">
+    INSERT INTO sys_role(name,description,code)
+    VALUES(#{name},#{description},#{code})
+  </insert>
+  <!-- 删除角色 -->
+  <delete id="deleteRole" parameterType="long">
+    DELETE FROM sys_role
+    WHERE id = #{id}
+  </delete>
+  <!-- 根据id查询角色信息 -->
+  <select id="findById" parameterType="long" resultMap="roleResult">
+    SELECT * FROM sys_role
+    WHERE id = #{id}
+  </select>
+  <!-- 根据用户名查询相应角色(一对一) -->
+  <select id="findRolesByUsername" parameterType="java.lang.String" resultMap="roleResult">
+    SELECT r.* FROM sys_user u,sys_user_role ur,sys_role  r
+    WHERE u.username = #{username}
+    AND u.id = ur.user_id
+    AND ur.role_id = r.id
+  </select>
+  <!-- 查询所有角色 -->
+  <select id="findAllRoles"
+          resultMap="roleResult">
+    SELECT * FROM sys_role
+  </select>
+  <!-- 更新角色 -->
+  <update id="updateRole" parameterType="com.ims.model.Role">
+    UPDATE sys_role SET
+    name = #{name},
+    description = #{description},
+    code = #{code}
+    WHERE id = #{id}
+  </update>
+  <!-- 删除用户角色关联 -->
+  <delete id="deleteUserRole" parameterType="long">
+    DELETE FROM sys_user_role
+    WHERE role_id = #{roleId}
+  </delete>
+  <!-- 删除角色权限关联 -->
+  <delete id="deleteRolePermission" parameterType="long">
+    DELETE FROM sys_role_permission
+    WHERE role_id = #{roleId}
+  </delete>
+  <!-- 添加角色权限关联 -->
+  <insert id="addRolePermission" parameterType="com.ims.model.RolePermission">
+    INSERT INTO sys_role_permission(role_id,permission_id)
+    VALUES(#{roleId},#{permissionId})
+  </insert>
+</mapper>

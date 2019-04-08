@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <!--配置dataSource-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close"
+          p:driverClassName="${jdbc.driver}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}"
+
+          p:initialSize="${jdbc.initialSize}"
+          p:maxActive="${jdbc.maxActive}"
+          p:minIdle="${jdbc.minIdle}"
+          p:maxWait="${jdbc.maxWait}"
+
+          p:filters="${jdbc.filters}"
+          p:timeBetweenEvictionRunsMillis="${jdbc.timeBetweenEvictionRunsMillis}"
+          p:minEvictableIdleTimeMillis="${jdbc.minEvictableIdleTimeMillis}"
+          p:validationQuery="${jdbc.validationQuery}"
+          p:testWhileIdle="${jdbc.testWhileIdle}"
+          p:testOnBorrow="${jdbc.testOnBorrow}"
+          p:testOnReturn="${jdbc.testOnReturn}"
+          p:poolPreparedStatements="${jdbc.poolPreparedStatements}"
+          p:maxOpenPreparedStatements="${jdbc.maxOpenPreparedStatements}"
+          p:removeAbandoned="${jdbc.removeAbandoned}"
+          p:removeAbandonedTimeout="${jdbc.removeAbandonedTimeout}"
+          p:logAbandoned="${jdbc.logAbandoned}"
+    />
+
+
+    <!-- spring整合mybatis （mybatis-spring项目提供整合类） -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+    </bean>
+    <!-- MyBatis 动态实现  -->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 对Dao 接口动态实现，需要知道接口在哪  -->
+        <property name="basePackage" value="com.ims.dao"/>
+    </bean>
+
+    <!-- 事务管理 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--注解方式配置事务-->
+    <tx:annotation-driven/>
+</beans>

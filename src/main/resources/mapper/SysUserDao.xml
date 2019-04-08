@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ims.dao.SysUserDao">
+
+    <!-- 添加用户 -->
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="id" parameterType="com.ims.model.User">
+    INSERT INTO sys_user(username,password,salt,create_time,state,real_name,gender,nation,birth,education,address,mobile,email,department,position,note,activate_time,code)
+    VALUES(#{username},#{password},#{salt},#{createTime},#{state},#{realName},#{gender},#{nation},#{birth},#{education},#{address},#{mobile},#{email},#{department},#{position},#{note},#{activateTime},#{code})
+  </insert>
+    <!-- 删除用户 -->
+    <delete id="deleteUser" parameterType="long">
+    DELETE FROM sys_user WHERE id = #{id}
+  </delete>
+    <!-- 用户信息实体结果映射 -->
+    <resultMap type="com.ims.model.User" id="userResult">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="salt" column="salt"/>
+        <result property="createTime" column="create_time"/>
+        <result property="state" column="state"/>
+        <result property="realName" column="real_name"/>
+        <result property="gender" column="gender"/>
+        <result property="nation" column="nation"/>
+        <result property="birth" column="birth"/>
+        <result property="education" column="education"/>
+        <result property="address" column="address"/>
+        <result property="mobile" column="mobile"/>
+        <result property="email" column="email"/>
+        <result property="department" column="department"/>
+        <result property="position" column="position"/>
+        <result property="note" column="note"/>
+        <result property="head" column="head"/>
+        <result property="activateTime" column="activate_time"/>
+        <result property="code" column="code"/>
+
+        <association property="userRole" javaType="com.ims.model.UserRole">
+            <result property="userId" column="user_id"/>
+            <result property="roleId" column="role_id"/>
+        </association>
+
+        <association property="role" javaType="com.ims.model.Role">
+            <result property="name" column="name"/>
+            <result property="description" column="description"/>
+            <result property="code" column="code"/>
+        </association>
+
+    </resultMap>
+
+    <!--根据邮箱查询用户-->
+    <select id="findUserByEmail" parameterType="string" resultMap="userResult">
+    SELECT * FROM sys_user
+    WHERE email = #{email}
+  </select>
+    <!--根据激活码Code查询用户-->
+    <select id="findUserByCode" parameterType="string" resultMap="userResult">
+        SELECT * FROM sys_user
+        WHERE code = #{code}
+    </select>
+    <!--根据名字查询用户-->
+    <select id="findUserByUsername" parameterType="string" resultMap="userResult">
+    SELECT * FROM sys_user
+    WHERE username = #{username}
+  </select>
+    <!-- 查询所有用户信息(单表，仅查询用户详细信息) -->
+    <select id="findAllUsers" resultMap="userResult">
+    SELECT * FROM sys_user
+  </select>
+
+    <!-- 查询所有用户以及角色(多表)-->
+    <select id="findAllUsersAndRoles" resultMap="userResult">
+        SELECT u.*,r.*
+        FROM sys_user u
+        left join sys_user_role ur
+        on u.id = ur.user_id
+        left join sys_role  r
+        on ur.role_id = r.id
+        order by u.id
+    </select>
+
+    <!-- 更新用户 -->
+    <update id="updateUser" parameterType="com.ims.model.User">
+        UPDATE sys_user
+        <set>
+            <if test="username != null">username=#{username},</if>
+            <if test="password != null">password=#{password},</if>
+            <if test="salt != null">salt=#{salt},</if>
+            <if test="state != null">state=#{state},</if>
+            <if test="realName != null">real_name=#{realName},</if>
+            <if test="gender != null">gender=#{gender},</if>
+            <if test="nation != null">nation=#{nation},</if>
+            <if test="birth != null">birth=#{birth},</if>
+            <if test="education != null">education=#{education},</if>
+            <if test="address != null">address=#{address},</if>
+            <if test="mobile != null">mobile=#{mobile},</if>
+            <if test="email != null">email=#{email},</if>
+            <if test="department != null">department=#{department},</if>
+            <if test="position != null">position=#{position},</if>
+            <if test="note != null">note=#{note},</if>
+            <if test="head != null">head=#{head},</if>
+            <if test="activateTime != null">activate_time=#{activateTime},</if>
+            <if test="code != null">code=#{code}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 重置密码 -->
+    <update id="resetPassword" parameterType="com.ims.model.User">
+        UPDATE sys_user
+        <set>
+            <if test="password != null">password=#{password},</if>
+            <if test="salt != null">salt=#{salt}</if>
+        </set>
+        WHERE username = #{username}
+    </update>
+
+    <!-- 更改用户状态 -->
+    <update id="updateState">
+        UPDATE sys_user
+        <set>
+            <if test="state != null">state=#{state}</if>
+        </set>
+        WHERE username = #{username}
+    </update>
+
+    <!-- 删除用户角色关联 -->
+    <delete id="deleteUserRole" parameterType="long">
+        DELETE FROM sys_user_role
+        WHERE user_id = #{userId}
+    </delete>
+    <!-- 添加用户角色关联 -->
+    <insert id="addUserRole" parameterType="com.ims.model.UserRole">
+        INSERT INTO sys_user_role(user_id,role_id)
+        VALUES(#{userId},#{roleId})
+      </insert>
+
+    <!--下面两个select用于UserRealm验证-->
+    <!-- 根据用户名字查询相应角色Code -->
+    <select id="findRolesCodeByUsername" parameterType="string" resultType="string">
+        SELECT r.code
+        FROM sys_user u,sys_role r,sys_user_role ur
+        WHERE u.username = #{username}
+        AND u.id = ur.user_id
+        AND ur.role_id = r.id
+      </select>
+    <!-- 根据用户名字查询相应权限Code -->
+    <select id="findPermissionsCodeByUsername" parameterType="string" resultType="string">
+        SELECT p.code
+        FROM sys_user u,sys_role r,sys_user_role ur,sys_permission p,sys_role_permission rp
+        WHERE u.username = #{username}
+        AND u.id = ur.user_id
+        AND ur.role_id = r.id
+        AND r.id = rp.role_id
+        AND rp.permission_id = p.id
+      </select>
+</mapper>
