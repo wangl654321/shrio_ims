@@ -106,7 +106,7 @@
                                              <i class="ace-icon fa fa-weibo"></i>
                                          </a>
                                      </div>--%>
-                                </div><!-- /.widget-main -->
+                                </div>
 
                                 <div class="toolbar clearfix">
                                     <div>
