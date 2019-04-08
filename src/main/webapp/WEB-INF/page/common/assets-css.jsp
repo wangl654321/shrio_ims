@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="${path}/resource/static/font-awesome/css/font-awesome.min.css" />
 
 <!--ico图标-->
-<link rel="shortcut icon" href="${path}/resource/images/favicon.ico" />
+<%--<link rel="shortcut icon" href="${path}/resource/images/favicon.ico" />--%>
 
 <!-- text fonts -->
 <link rel="stylesheet" href="${path}/resource/static/googlefonts/fonts.googleapis.com.css" />

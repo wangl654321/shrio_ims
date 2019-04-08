@@ -1,6 +1,5 @@
 package com.ims.shiro.filter;
 
-
 import com.ims.service.LoginLogService;
 import com.ims.service.UserService;
 import org.apache.logging.log4j.LogManager;
@@ -17,15 +16,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/***
+ *
+*
+* 描    述：使用Navibar表单身份验证筛选器
+*
+* 创 建 者： @author wl
+* 创建时间： 2019/4/8 13:54
+* 创建描述：
+*
+* 修 改 者：
+* 修改时间：
+* 修改描述：
+*
+* 审 核 者：
+* 审核时间：
+* 审核描述：
+*
+ */
 public class WithNavibarFormAuthenticationFilter extends FormAuthenticationFilter {
+
     protected Logger logger = LogManager.getLogger(this.getClass());
+
 	@Resource
 	private UserService userService;
 	@Resource
 	private LoginLogService loginLogService;
 	@Override
-	protected boolean onLoginSuccess(AuthenticationToken token, Subject subject, ServletRequest request,
-                                     ServletResponse response) throws Exception {
+	protected boolean onLoginSuccess(AuthenticationToken token, Subject subject, ServletRequest request,ServletResponse response) throws Exception {
+
 		HttpServletRequest httpReq=(HttpServletRequest)request;
         HttpSession session=((HttpServletRequest) request).getSession();
 

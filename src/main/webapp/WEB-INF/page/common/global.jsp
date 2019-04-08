@@ -6,4 +6,5 @@
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ taglib prefix="customTag" tagdir="/WEB-INF/tags" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="ctx" value="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}"/>
 <c:set var="title" value="信息管理系统"/>
