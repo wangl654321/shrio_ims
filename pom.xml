@@ -421,6 +421,13 @@
             <version>${mail.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.55</version>
+        </dependency>
+
+
         <!--解决java9 annotation问题，不使用java9无需开启-->
         <!--<dependency>-->
         <!--<groupId>org.glassfish</groupId>-->

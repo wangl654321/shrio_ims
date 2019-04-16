@@ -5,6 +5,7 @@ import com.ims.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
@@ -40,8 +41,10 @@ public class WithNavibarFormAuthenticationFilter extends FormAuthenticationFilte
 
 	@Resource
 	private UserService userService;
+
 	@Resource
 	private LoginLogService loginLogService;
+
 	@Override
 	protected boolean onLoginSuccess(AuthenticationToken token, Subject subject, ServletRequest request,ServletResponse response) throws Exception {
 
